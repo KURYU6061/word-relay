@@ -1,0 +1,333 @@
+/* 전체 페이지 스타일 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* 게임 컨테이너 */
+.game-container {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 게임 타이틀 */
+.game-title {
+    color: #4a5568;
+    margin-bottom: 30px;
+    font-size: 2.2em;
+    font-weight: 700;
+}
+
+/* 플레이어 정보 섹션 */
+.player-info {
+    background: linear-gradient(135deg, #4299e1, #3182ce);
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 16px rgba(66, 153, 225, 0.3);
+}
+
+.current-player {
+    font-size: 1.4em;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.player-name {
+    color: #ffd700;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.player-order {
+    opacity: 0.9;
+}
+
+.turn-indicator {
+    font-size: 0.9em;
+    opacity: 0.8;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+/* 단어 표시 섹션 */
+.word-display {
+    background: #f7fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+.word-display label {
+    color: #4a5568;
+    font-weight: 600;
+    font-size: 1.1em;
+    margin-right: 10px;
+}
+
+.current-word {
+    color: #2d3748;
+    font-size: 1.5em;
+    font-weight: 700;
+    background: linear-gradient(45deg, #ed8936, #dd6b20);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* 입력 섹션 */
+.input-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 15px 20px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 1.1em;
+    outline: none;
+    transition: all 0.3s ease;
+    background: #f7fafc;
+}
+
+input[type="text"]:focus {
+    border-color: #4299e1;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
+    transform: translateY(-1px);
+}
+
+input[type="text"]::placeholder {
+    color: #a0aec0;
+}
+
+.submit-btn {
+    padding: 15px 25px;
+    background: linear-gradient(135deg, #48bb78, #38a169);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(72, 187, 120, 0.3);
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(72, 187, 120, 0.4);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+/* 게임 통계 */
+.game-stats {
+    background: #edf2f7;
+    border-radius: 10px;
+    padding: 15px;
+    color: #4a5568;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.used-words-count span, .remaining-players span {
+    color: #3182ce;
+    font-weight: 700;
+}
+
+.remaining-players span {
+    color: #e53e3e;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 600px) {
+    .game-container {
+        padding: 25px;
+        margin: 10px;
+    }
+    
+    .game-title {
+        font-size: 1.8em;
+    }
+    
+    .input-section {
+        flex-direction: column;
+    }
+    
+    .submit-btn {
+        width: 100%;
+    }
+}
+
+/* 우승 화면 스타일 */
+.winner-screen {
+    text-align: center;
+    padding: 40px 20px;
+    animation: celebration 0.8s ease-out;
+}
+
+@keyframes celebration {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.winner-title {
+    font-size: 2.5em;
+    color: #4299e1;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    animation: bounce 1s infinite alternate;
+}
+
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+
+.winner-name {
+    font-size: 3em;
+    font-weight: 800;
+    background: linear-gradient(45deg, #ffd700, #ffed4e, #f6e05e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 20px 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    0% { filter: brightness(1); }
+    100% { filter: brightness(1.2); }
+}
+
+.winner-message {
+    font-size: 1.8em;
+    color: #2d3748;
+    margin: 30px 0;
+    font-weight: 600;
+}
+
+.restart-btn {
+    background: linear-gradient(135deg, #4299e1, #3182ce);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    font-weight: 600;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 16px rgba(66, 153, 225, 0.3);
+}
+
+.restart-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 20px rgba(66, 153, 225, 0.4);
+}
+
+.restart-btn:active {
+    transform: translateY(-1px);
+}
+
+/* 다크모드 우승 화면 */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+    }
+    
+    .game-container {
+        background: rgba(45, 55, 72, 0.95);
+        color: #e2e8f0;
+    }
+    
+    .game-title {
+        color: #e2e8f0;
+    }
+    
+    .word-display {
+        background: #2d3748;
+        border-color: #4a5568;
+    }
+    
+    .word-display label {
+        color: #a0aec0;
+    }
+    
+    input[type="text"] {
+        background: #2d3748;
+        border-color: #4a5568;
+        color: #e2e8f0;
+    }
+    
+    input[type="text"]:focus {
+        background: #4a5568;
+    }
+    
+    .game-stats {
+        background: #2d3748;
+        color: #a0aec0;
+    }
+    
+    .winner-title {
+        color: #63b3ed;
+    }
+    
+    .winner-message {
+        color: #e2e8f0;
+    }
+}
+
